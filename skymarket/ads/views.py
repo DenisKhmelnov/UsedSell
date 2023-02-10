@@ -47,7 +47,7 @@ class CommentViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.action in ['update', 'destroy']:
             self.permission_classes = [IsAuthenticated, IsAdminUser | IsOwner]
-        return  super().get_permissions()
+        return super().get_permissions()
 
     def perform_create(self, serializer):
         ad_id = self.kwargs.get("ad_pk")
