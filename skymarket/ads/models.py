@@ -9,8 +9,8 @@ class Ad(models.Model):
     description = models.TextField()
     author = models.ForeignKey("users.User", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(default=None, null=True, blank=True, upload_to="ad_image")
-
+    # image = models.ImageField(default=None, null=True, blank=True, upload_to="ad_image")
+    image = models.URLField(default=None, null=True, blank=True)
 
 class Comment(models.Model):
     # TODO добавьте поля модели здесь

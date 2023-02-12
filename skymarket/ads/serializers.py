@@ -21,6 +21,11 @@ class AdSerializer(serializers.ModelSerializer):
         model = Ad
         fields = ["pk", "image", "title", "price", "description"]
 
+    def create(self, validated_data):
+        author = self.context['request'].user
+        validated_data['author'] = author
+        return super().create(validated_data)
+
 
 class AdDetailSerializer(serializers.ModelSerializer):
     author_first_name = serializers.SerializerMethodField()
